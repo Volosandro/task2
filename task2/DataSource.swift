@@ -7,11 +7,19 @@
 
 import Foundation
 
-class DataSource
+class DataSource: NSObject, NSCoding
 {
-    private var data: [String] = []
+    var data: [String] = []
     
-    init()
+    func encode(with coder: NSCoder) {
+        coder.encode(self.data, forKey: "__data")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.data = coder.decodeObject(forKey: "__data") as? [String] ?? []
+    }
+
+    override init()
     {
         self.data = (0..<Int.random(in: 30...35)).map{ _ in Int.random(in: 1 ... 20).description}
     }

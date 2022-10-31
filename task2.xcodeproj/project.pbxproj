@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55CB2D942910616700A2EDEF /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB2D932910616700A2EDEF /* DataSource.swift */; };
+		55CB2D9629106D1900A2EDEF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB2D9529106D1900A2EDEF /* Storage.swift */; };
 		55CF6C9329105CE20016524A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF6C9229105CE20016524A /* AppDelegate.swift */; };
 		55CF6C9529105CE20016524A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF6C9429105CE20016524A /* SceneDelegate.swift */; };
 		55CF6C9729105CE20016524A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF6C9629105CE20016524A /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		55CB2D932910616700A2EDEF /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		55CB2D9529106D1900A2EDEF /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		55CF6C8F29105CE20016524A /* task2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CF6C9229105CE20016524A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55CF6C9429105CE20016524A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				55CF6C9B29105CE30016524A /* Assets.xcassets */,
 				55CF6C9D29105CE30016524A /* LaunchScreen.storyboard */,
 				55CF6CA029105CE30016524A /* Info.plist */,
+				55CB2D9529106D1900A2EDEF /* Storage.swift */,
 			);
 			path = task2;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				55CF6C9329105CE20016524A /* AppDelegate.swift in Sources */,
 				55CB2D942910616700A2EDEF /* DataSource.swift in Sources */,
 				55CF6C9529105CE20016524A /* SceneDelegate.swift in Sources */,
+				55CB2D9629106D1900A2EDEF /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

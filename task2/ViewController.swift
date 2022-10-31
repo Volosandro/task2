@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     // MARK: - Variables
     var data = DataSource()
@@ -16,7 +16,27 @@ class ViewController: UIViewController
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.addTableView()
+        self.tableView.reloadData()
+    }
+    
+    init()
+    {
+        super.init(nibName: nil, bundle: nil)
+        self.data = DataSource()
+        self.tableView = UITableView()
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(self.data, forKey: "__data")
+        coder.encode(self.tableView, forKey: "__tableView")
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.data = coder.decodeObject(forKey: "__data") as! DataSource
+        self.tableView = coder.decodeObject(forKey: "__tableView") as! UITableView
     }
 
     // MARK: - Configure
@@ -29,11 +49,19 @@ class ViewController: UIViewController
         
         self.view.addSubview(self.tableView)
     }
-}
-
-// MARK: - Extensions
-extension ViewController: UITableViewDataSource
-{
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Storage.shared.addVC(vc: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.isMovingFromParent
+        {
+            Storage.shared.removeVC(vc: self)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.getDataCount()
     }
@@ -50,10 +78,7 @@ extension ViewController: UITableViewDataSource
             return UITableViewCell()
         }
     }
-}
-
-extension ViewController: UITableViewDelegate
-{
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ViewController()
         vc.title = self.data.getStringByIndex(index: indexPath.row)
